@@ -1,0 +1,28 @@
+{% extends 'food/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    {% block body %}
+    <!-- <h2>These are food items</h2> -->
+    {% for item in item_list %}
+        <div class="row">
+            <div class="col-md-2 offset-md-2">
+                <img height="120px" width="150px" src="{{ item.item_image }}"/>
+            </div>
+            <div class="col-md-4">
+                <h3>{{ item.item_name }}</h3>
+                <!-- <h5>{{ item.item_desc }}</h5> -->
+                <h6>Rs.{{ item.item_price }}</h6>
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'detail' item.id %}" class="btn btn-success"> Details</a>
+            </div>
+
+        </div>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>
